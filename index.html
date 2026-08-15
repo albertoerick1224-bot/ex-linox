@@ -2,138 +2,74 @@
 <html lang="es">
 <head>
 <meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>EXÓTIC LINOX V13.1</title>
+<title>EXÓTIC LINOX V13.1 FULL</title>
 <style>
-body{margin:0;padding:0;background:#000;color:#fff;font-family:Arial;overflow:hidden}
-#intro{position:fixed;width:100%;height:100%;background:#000;display:flex;flex-direction:column;justify-content:center;align-items:center;z-index:9999;animation:fadeOut 2s 3s forwards}
-@keyframes fadeOut{to{opacity:0;visibility:hidden}}
-.logo{font-size:40px;font-weight:bold;color:#00ff88;text-shadow:0 0 20px #00ff88;margin-bottom:10px}
-.sub{font-size:14px;color:#aaa}
-#passScreen{position:fixed;width:100%;height:100%;background:#111;display:flex;justify-content:center;align-items:center;flex-direction:column}
-#passScreen input{padding:12px;width:250px;background:#222;border:2px solid #00ff88;color:#fff;border-radius:8px;text-align:center;font-size:16px}
-#passScreen button{margin-top:15px;padding:12px 30px;background:#00ff88;border:none;color:#000;font-weight:bold;border-radius:8px;cursor:pointer}
-#app{display:none;padding:10px;height:100vh;flex-direction:column}
-header{text-align:center;padding:10px;background:linear-gradient(90deg,#00ff88,#00aaff);border-radius:10px;margin-bottom:10px}
-#chat{flex:1;overflow-y:auto;background:#1a1a1a;border-radius:10px;padding:10px;margin-bottom:10px}
-.msg{margin:8px 0;padding:10px;border-radius:8px}
-.user{background:#00ff88;color:#000;text-align:right}
-.bot{background:#2a2a2a;color:#0f0}
-#inputArea{display:flex;gap:5px}
-#inputArea input{flex:1;padding:12px;background:#222;border:2px solid #00ff88;color:#fff;border-radius:8px}
-#inputArea button{padding:12px 20px;background:#00ff88;border:none;color:#000;font-weight:bold;border-radius:8px;cursor:pointer}
+body{background:#000;color:#00ff88;font-family:Arial;padding:10px}
+h1,h2{text-align:center;color:#00ff88}
+.box{background:#111;border:1px solid #00ff88;padding:10px;margin:10px 0;border-radius:8px}
+button{background:#00ff88;color:#000;border:none;padding:8px;margin:3px;border-radius:5px;font-weight:bold;cursor:pointer;font-size:12px;width:48%}
+.copy{background:#ff00ff;color:#fff;width:100%}
+#login,#panel{display:none}
 </style>
 </head>
 <body>
-<div id="intro"><div class="logo">🤖 EXÓTIC LINOX</div><div class="sub">V13.1 - BASE DE DATOS COMPLETA 2026</div></div>
-
-<div id="passScreen">
-<h2>ACCESO EXÓTIC LINOX</h2>
-<input type="password" id="pass" placeholder="Contraseña">
-<button onclick="checkPass()">ENTRAR</button>
+<div id="login" style="display:block;text-align:center;margin-top:80px">
+<h1>EXÓTIC LINOX V13.1</h1>
+<p>DPI SEGURO: 400-620</p>
+<input type="password" id="pwd" placeholder="Contraseña" style="padding:10px">
+<br><button onclick="entrar()">ENTRAR</button>
 </div>
 
-<div id="app">
-<header><h3>EXÓTIC LINOX V13.1 | +200 Modelos</h3></header>
-<div id="chat"></div>
-<div id="inputArea">
-<input type="text" id="msg" placeholder="Ej: sensi y mod para samsung s24 ultra">
-<button onclick="send()">ENVIAR</button>
+<div id="panel">
+<h1>🔥 EXÓTIC LINOX - DPI 400-620 🔥</h1>
+
+<div class="box">
+<h2>📱 ANDROID CON DPI 400-620</h2>
+<h3>GAMA ALTA 170-200</h3>
+<button onclick="copiar('POCO X6 PRO ALTA\nSENSI: 100-100-100-100-100\nDPI: 620\nDISPARO: 143\nMACRO: 1MS')">Poco X6 Pro Alta</button>
+<button onclick="copiar('S24 ULTRA ALTA\nSENSI: 100-100-100-100-100\nDPI: 600\nDISPARO: 143')">Samsung S24 Ultra</button>
+<button onclick="copiar('MOTOROLA EDGE 50 ALTA\nSENSI: 100-100-100-100-100\nDPI: 580\nDISPARO: 143')">Motorola Edge 50</button>
+
+<h3>GAMA MEDIA 125-160</h3>
+<button onclick="copiar('POCO X5 MEDIA\nSENSI: 90-90-90-90-90\nDPI: 520\nDISPARO: 56-83')">Poco X5 Media</button>
+<button onclick="copiar('SAMSUNG A54 MEDIA\nSENSI: 90-90-90-90-90\nDPI: 500\nDISPARO: 56-83')">Samsung A54</button>
+<button onclick="copiar('MOTOROLA G84 MEDIA\nSENSI: 90-90-90-90-90\nDPI: 480\nDISPARO: 56-83')">Motorola G84</button>
+
+<h3>GAMA BAJA 85-140</h3>
+<button onclick="copiar('REDMI 12C BAJA\nSENSI: 80-80-80-80-80\nDPI: 420\nDISPARO: 37-52')">Redmi 12C</button>
+<button onclick="copiar('SAMSUNG A05 BAJA\nSENSI: 80-80-80-80-80\nDPI: 400\nDISPARO: 37-52')">Samsung A05</button>
+<button onclick="copiar('MOTOROLA E13 BAJA\nSENSI: 80-80-80-80-80\nDPI: 410\nDISPARO: 37-52')">Motorola E13</button>
 </div>
+
+<div class="box">
+<h2>🍎 IPHONE SIN DPI</h2>
+<h3>GAMA ALTA 170-200</h3>
+<button onclick="copiar('IPHONE 15 PRO ALTA\nSENSI: 60-60-60-60-60\nSIN DPI\nDISPARO: 143')">iPhone 15 Pro</button>
+<button onclick="copiar('IPHONE 14 PRO ALTA\nSENSI: 60-60-60-60-60\nSIN DPI\nDISPARO: 143')">iPhone 14 Pro</button>
+
+<h3>GAMA MEDIA 125-160</h3>
+<button onclick="copiar('IPHONE 13 MEDIA\nSENSI: 55-55-55-55-55\nSIN DPI\nDISPARO: 56-83')">iPhone 13</button>
+<button onclick="copiar('IPHONE 12 MEDIA\nSENSI: 55-55-55-55-55\nSIN DPI\nDISPARO: 56-83')">iPhone 12</button>
+
+<h3>GAMA BAJA 85-140</h3>
+<button onclick="copiar('IPHONE 11 BAJA\nSENSI: 50-50-50-50-50\nSIN DPI\nDISPARO: 37-52')">iPhone 11</button>
+<button onclick="copiar('IPHONE XR BAJA\nSENSI: 50-50-50-50-50\nSIN DPI\nDISPARO: 37-52')">iPhone XR</button>
+</div>
+
+<button class="copy" onclick="copiar('EXÓTIC LINOX V13.1\nTODOS LOS MODELOS DPI 400-620\nLISTOS PARA USAR')">COPIAR TODOS LOS DATOS</button>
 </div>
 
 <script>
-let chat = document.getElementById('chat');
-let msg = document.getElementById('msg');
-
-function speak(t){let u=new SpeechSynthesisUtterance(t);u.lang='es-ES';u.rate=0.9;speechSynthesis.speak(u)}
-
-function checkPass(){
-if(document.getElementById('pass').value.toLowerCase()==='exotic linox'){
-document.getElementById('passScreen').style.display='none';
-document.getElementById('app').style.display='flex';
-speak("Bienvenido a Exótic Linox V13.1. Base de datos completa cargada");
-}else{alert("Contraseña incorrecta: exotic linox")}
+function entrar(){
+if(document.getElementById('pwd').value.toLowerCase()==='exotic linox'){
+document.getElementById('login').style.display='none';
+document.getElementById('panel').style.display='block';
+}else{alert('Contraseña incorrecta')}
 }
-
-const DB = {
-"IPHONE": {
-"iphone 7":{"dpi":380,"sensi":"General 100, Punto 95, Mira 90","mod":"Mod 7 FPS estable + HUD 4 dedos"},
-"iphone 8":{"dpi":400,"sensi":"General 100, Punto 95, Mira 90","mod":"Mod 8 FPS + Sin Lag"},
-"iphone x":{"dpi":420,"sensi":"General 100, Punto 100, Mira 95","mod":"Mod X Notch + HUD"},
-"iphone xr":{"dpi":440,"sensi":"General 100, Punto 100, Mira 95","mod":"Mod XR Color"},
-"iphone 11":{"dpi":460,"sensi":"General 100, Punto 100, Mira 100","mod":"Mod 11 60FPS"},
-"iphone 12":{"dpi":480,"sensi":"General 100, Punto 100, Mira 100","mod":"Mod 12 Pro"},
-"iphone 13":{"dpi":500,"sensi":"General 100, Punto 100, Mira 100","mod":"Mod 13 Ultra"},
-"iphone 14":{"dpi":520,"sensi":"General 100, Punto 100, Mira 100","mod":"Mod 14 Pro Max"},
-"iphone 15":{"dpi":540,"sensi":"General 100, Punto 100, Mira 100","mod":"Mod 15 120Hz"},
-"iphone 16 pro max":{"dpi":560,"sensi":"General 100, Punto 100, Mira 100","mod":"Mod 16 Pro Max"}
-},
-"SAMSUNG": {
-"samsung s20 ultra":{"dpi":520,"sensi":"General 98, Punto 95, Mira 90","mod":"Mod S20 Game Turbo"},
-"samsung s21 ultra":{"dpi":540,"sensi":"General 99, Punto 96, Mira 91","mod":"Mod S21 120Hz"},
-"samsung s22 ultra":{"dpi":560,"sensi":"General 100, Punto 97, Mira 92","mod":"Mod S22 Expert RAW"},
-"samsung s23 ultra":{"dpi":580,"sensi":"General 100, Punto 98, Mira 93","mod":"Mod S23 Pro"},
-"samsung s24 ultra":{"dpi":600,"sensi":"General 100, Punto 100, Mira 95","mod":"Mod S24 AI + 120FPS"}
-},
-"XIAOMI/REDMI": {
-"redmi note 10 pro":{"dpi":480,"sensi":"General 95, Punto 90, Mira 85","mod":"Mod RN10 Poco"},
-"redmi note 11 pro":{"dpi":500,"sensi":"General 96, Punto 91, Mira 86","mod":"Mod RN11 Turbo"},
-"redmi note 12 pro":{"dpi":520,"sensi":"General 97, Punto 92, Mira 87","mod":"Mod RN12 120Hz"},
-"redmi note 13 pro":{"dpi":540,"sensi":"General 98, Punto 93, Mira 88","mod":"Mod RN13 Pro+"}
-},
-"POCO": {
-"poco x3 pro":{"dpi":500,"sensi":"General 97, Punto 93, Mira 88","mod":"Mod X3 GT"},
-"poco x4 pro":{"dpi":520,"sensi":"General 98, Punto 94, Mira 89","mod":"Mod X4 AMOLED"},
-"poco x5 pro":{"dpi":540,"sensi":"General 99, Punto 95, Mira 90","mod":"Mod X5 120FPS"},
-"poco x6 pro":{"dpi":560,"sensi":"General 100, Punto 100, Mira 95","mod":"Mod X6 Dimensity 8300"}
-},
-"REALME": {
-"realme c55":{"dpi":460,"sensi":"General 94, Punto 89, Mira 84","mod":"Mod C55 90Hz"},
-"realme 11 pro":{"dpi":500,"sensi":"General 96, Punto 91, Mira 86","mod":"Mod 11 Pro 100W"},
-"realme gt 3":{"dpi":560,"sensi":"General 100, Punto 100, Mira 95","mod":"Mod GT3 240W"}
-},
-"INFINIX": {
-"infinix note 30 pro":{"dpi":480,"sensi":"General 95, Punto 90, Mira 85","mod":"Mod Note 30 108MP"},
-"infinix zero 30":{"dpi":500,"sensi":"General 96, Punto 91, Mira 86","mod":"Mod Zero 30 4K"}
-},
-"TECNO": {
-"tecno spark 10 pro":{"dpi":450,"sensi":"General 93, Punto 88, Mira 83","mod":"Mod Spark 10"},
-"tecno camon 20 pro":{"dpi":480,"sensi":"General 95, Punto 90, Mira 85","mod":"Mod Camon 20"}
+function copiar(texto){
+navigator.clipboard.writeText(texto);
+alert('COPIADO CORRECTAMENTE ✅\n\n'+texto);
 }
-};
-
-function send(){
-let t = msg.value.toLowerCase();
-if(!t) return;
-addMsg(t,'user');
-msg.value='';
-let r = buscar(t);
-addMsg(r,'bot');
-speak(r);
-}
-
-function buscar(texto){
-for(let marca in DB){
-for(let modelo in DB[marca]){
-if(texto.includes(modelo)){
-let d = DB[marca][modelo];
-return `✅ ${modelo.toUpperCase()}\n\n📱 DPI: ${d.dpi}\n🎯 SENSIBILIDAD: ${d.sensi}\n📦 MOD: ${d.mod}\n\n¿Quieres el archivo de la MOD?`;
-}
-}
-}
-return "No encontré ese modelo rey. Prueba: iphone 13, samsung s24 ultra, poco x6 pro, redmi note 13 pro";
-}
-
-function addMsg(tipo, quien){
-let div = document.createElement('div');
-div.className = 'msg ' + quien;
-div.innerText = tipo;
-chat.appendChild(div);
-chat.scrollTop = chat.scrollHeight;
-}
-
-msg.addEventListener('keypress', e => {if(e.key==='Enter')send()});
 </script>
 </body>
-  </html>
+</html>
