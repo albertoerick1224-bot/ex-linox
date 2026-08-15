@@ -3,6 +3,7 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="theme-color" content="#080808">
 
 <title>EXOTIC LINOX AI</title>
 
@@ -15,26 +16,27 @@
 }
 
 body{
-    background:#070707;
-    color:white;
-    font-family:Arial, sans-serif;
+    font-family:Arial,Helvetica,sans-serif;
+    background:
+        radial-gradient(circle at top,#2a100c 0%,#090909 45%,#050505 100%);
+    color:#fff;
     min-height:100vh;
 }
 
 .container{
     width:100%;
-    max-width:850px;
+    max-width:900px;
     margin:auto;
-    padding:20px;
+    padding:15px;
 }
 
 .header{
     text-align:center;
-    padding:30px 10px;
+    padding:30px 10px 20px;
 }
 
 .logo{
-    font-size:35px;
+    font-size:36px;
     font-weight:900;
     letter-spacing:2px;
 }
@@ -43,9 +45,22 @@ body{
     color:#ff3b30;
 }
 
-.subtitle{
+.ai{
+    display:inline-block;
     margin-top:10px;
+    padding:7px 14px;
+    border-radius:20px;
+    background:#21100e;
+    border:1px solid #5b2924;
+    color:#ff7068;
+    font-size:12px;
+    font-weight:bold;
+}
+
+.subtitle{
     color:#999;
+    margin-top:12px;
+    line-height:1.5;
 }
 
 .card{
@@ -54,30 +69,31 @@ body{
     border-radius:18px;
     padding:20px;
     margin-top:18px;
+    box-shadow:0 12px 40px rgba(0,0,0,.3);
 }
 
 .title{
     font-size:20px;
-    font-weight:bold;
+    font-weight:900;
     margin-bottom:20px;
 }
 
 label{
     display:block;
     color:#aaa;
-    font-size:14px;
+    font-size:13px;
     margin-bottom:7px;
 }
 
 input,
 select{
     width:100%;
-    background:#19191f;
-    color:white;
-    border:1px solid #303038;
-    border-radius:12px;
     padding:14px;
     margin-bottom:16px;
+    background:#19191f;
+    color:#fff;
+    border:1px solid #303038;
+    border-radius:12px;
     outline:none;
     font-size:15px;
 }
@@ -89,13 +105,13 @@ select:focus{
 
 .generate{
     width:100%;
-    background:#ff3b30;
-    color:white;
-    border:none;
-    border-radius:12px;
     padding:16px;
+    border:0;
+    border-radius:12px;
+    background:#ff3b30;
+    color:#fff;
     font-size:16px;
-    font-weight:bold;
+    font-weight:900;
     cursor:pointer;
 }
 
@@ -109,6 +125,7 @@ select:focus{
 
 .device{
     background:#19191f;
+    border:1px solid #292930;
     padding:15px;
     border-radius:12px;
     margin-bottom:15px;
@@ -122,6 +139,17 @@ select:focus{
     display:block;
     margin-top:5px;
     font-size:18px;
+}
+
+.level{
+    display:inline-block;
+    margin-bottom:15px;
+    padding:7px 12px;
+    border-radius:20px;
+    background:#24130f;
+    color:#ff8b80;
+    font-size:12px;
+    font-weight:bold;
 }
 
 .config{
@@ -147,28 +175,62 @@ select:focus{
     font-size:25px;
 }
 
-.optimization{
-    margin-top:15px;
-    background:#19191f;
-    border-radius:13px;
-    padding:16px;
-    line-height:1.6;
-    color:#ccc;
+.full{
+    grid-column:1/-1;
 }
 
-.optimization strong{
-    color:white;
+.section{
+    margin-top:15px;
+    background:#19191f;
+    border:1px solid #292930;
+    border-radius:14px;
+    padding:17px;
+}
+
+.section-title{
+    font-size:16px;
+    font-weight:900;
+    margin-bottom:10px;
+}
+
+.section p{
+    color:#ccc;
+    line-height:1.6;
+    font-size:14px;
+}
+
+.section ul{
+    margin-left:18px;
+    color:#ccc;
+    line-height:1.8;
+    font-size:14px;
+}
+
+.tip{
+    border-color:#493d1c;
+    background:#1c190f;
+}
+
+.warning{
+    margin-top:15px;
+    padding:13px;
+    border-radius:12px;
+    background:#211817;
+    border:1px solid #4c2926;
+    color:#d8aaa5;
+    font-size:12px;
+    line-height:1.5;
 }
 
 .copy{
     width:100%;
     margin-top:15px;
-    background:white;
-    color:black;
-    border:none;
-    border-radius:12px;
     padding:15px;
-    font-weight:bold;
+    border:0;
+    border-radius:12px;
+    background:#fff;
+    color:#111;
+    font-weight:900;
     cursor:pointer;
 }
 
@@ -179,18 +241,26 @@ select:focus{
     font-size:12px;
 }
 
+.footer strong{
+    color:#999;
+}
+
 @media(max-width:600px){
 
     .container{
-        padding:14px;
+        padding:13px;
     }
 
     .logo{
-        font-size:28px;
+        font-size:29px;
     }
 
     .config{
         grid-template-columns:1fr;
+    }
+
+    .full{
+        grid-column:auto;
     }
 
 }
@@ -198,32 +268,36 @@ select:focus{
 </style>
 </head>
 
+
 <body>
 
 <div class="container">
 
-<!-- ==============================
-     CABECERA
-============================== -->
+<!-- =====================================================
+     HEADER
+====================================================== -->
 
-<div class="header">
+<header class="header">
 
     <div class="logo">
         EXOTIC <span>LINOX</span>
     </div>
 
-    <p class="subtitle">
+    <div class="ai">
         🤖 EXOTIC LINOX AI
-        <br>
-        Generador de configuraciones para Free Fire
+    </div>
+
+    <p class="subtitle">
+        Configurador inteligente de sensibilidad,
+        optimización y recomendaciones.
     </p>
 
-</div>
+</header>
 
 
-<!-- ==============================
+<!-- =====================================================
      FORMULARIO
-============================== -->
+====================================================== -->
 
 <div class="card">
 
@@ -242,65 +316,21 @@ select:focus{
             Selecciona una marca
         </option>
 
-        <option value="Samsung">
-            Samsung
-        </option>
-
-        <option value="Redmi">
-            Redmi
-        </option>
-
-        <option value="POCO">
-            POCO
-        </option>
-
-        <option value="Xiaomi">
-            Xiaomi
-        </option>
-
-        <option value="TECNO">
-            TECNO
-        </option>
-
-        <option value="Infinix">
-            Infinix
-        </option>
-
-        <option value="Motorola">
-            Motorola
-        </option>
-
-        <option value="OnePlus">
-            OnePlus
-        </option>
-
-        <option value="Realme">
-            Realme
-        </option>
-
-        <option value="OPPO">
-            OPPO
-        </option>
-
-        <option value="Vivo">
-            Vivo
-        </option>
-
-        <option value="Huawei">
-            Huawei
-        </option>
-
-        <option value="Honor">
-            Honor
-        </option>
-
-        <option value="Apple">
-            Apple
-        </option>
-
-        <option value="Otra">
-            Otra
-        </option>
+        <option value="Samsung">Samsung</option>
+        <option value="Redmi">Redmi</option>
+        <option value="POCO">POCO</option>
+        <option value="Xiaomi">Xiaomi</option>
+        <option value="TECNO">TECNO</option>
+        <option value="Infinix">Infinix</option>
+        <option value="Motorola">Motorola</option>
+        <option value="OnePlus">OnePlus</option>
+        <option value="Realme">Realme</option>
+        <option value="OPPO">OPPO</option>
+        <option value="Vivo">Vivo</option>
+        <option value="Huawei">Huawei</option>
+        <option value="Honor">Honor</option>
+        <option value="Apple">Apple</option>
+        <option value="Otra">Otra</option>
 
     </select>
 
@@ -317,55 +347,38 @@ select:focus{
 
 
     <label>
-        Tipo de sensibilidad
+        Sensibilidad
     </label>
 
     <select id="level">
 
         <option value="high">
-            🔥 Sensibilidad alta
+            🔥 Alta
         </option>
 
         <option value="medium">
-            ⚡ Sensibilidad media
+            ⚡ Media
         </option>
 
         <option value="low">
-            🎮 Sensibilidad baja
+            🎮 Baja
         </option>
 
     </select>
 
 
     <label>
-        RAM del teléfono
+        RAM
     </label>
 
     <select id="ram">
 
-        <option value="3">
-            3 GB
-        </option>
-
-        <option value="4">
-            4 GB
-        </option>
-
-        <option value="6">
-            6 GB
-        </option>
-
-        <option value="8" selected>
-            8 GB
-        </option>
-
-        <option value="12">
-            12 GB
-        </option>
-
-        <option value="16">
-            16 GB
-        </option>
+        <option value="3">3 GB</option>
+        <option value="4">4 GB</option>
+        <option value="6">6 GB</option>
+        <option value="8" selected>8 GB</option>
+        <option value="12">12 GB</option>
+        <option value="16">16 GB</option>
 
     </select>
 
@@ -376,25 +389,11 @@ select:focus{
 
     <select id="fingers">
 
-        <option value="2">
-            2 dedos
-        </option>
-
-        <option value="3">
-            3 dedos
-        </option>
-
-        <option value="4">
-            4 dedos
-        </option>
-
-        <option value="5">
-            5 dedos
-        </option>
-
-        <option value="6">
-            6 dedos
-        </option>
+        <option value="2">2 dedos</option>
+        <option value="3">3 dedos</option>
+        <option value="4">4 dedos</option>
+        <option value="5">5 dedos</option>
+        <option value="6">6 dedos</option>
 
     </select>
 
@@ -404,15 +403,15 @@ select:focus{
         class="generate"
         id="generateButton"
     >
-        🔥 GENERAR SENSIBILIDAD
+        🔥 GENERAR CONFIGURACIÓN
     </button>
 
 </div>
 
 
-<!-- ==============================
+<!-- =====================================================
      RESULTADO
-============================== -->
+====================================================== -->
 
 <div
     class="card result"
@@ -420,7 +419,7 @@ select:focus{
 >
 
     <div class="title">
-        🤖 EXOTIC LINOX AI
+        🤖 Resultado EXOTIC LINOX AI
     </div>
 
 
@@ -436,6 +435,13 @@ select:focus{
 
     </div>
 
+
+    <div class="level" id="levelResult">
+        -
+    </div>
+
+
+    <!-- SENSIBILIDAD -->
 
     <div class="config">
 
@@ -494,7 +500,7 @@ select:focus{
         <div class="box">
 
             <small>
-                🎯 AWM
+                🎯 Mira AWM
             </small>
 
             <strong id="awm">
@@ -517,7 +523,7 @@ select:focus{
         </div>
 
 
-        <div class="box">
+        <div class="box full">
 
             <small>
                 📱 DPI
@@ -532,15 +538,62 @@ select:focus{
     </div>
 
 
-    <div class="optimization">
+    <!-- =================================================
+         MODIFICACIÓN / OPTIMIZACIÓN
+    ================================================== -->
 
-        <strong>
-            ⚙️ Optimización
-        </strong>
+    <div class="section">
+
+        <div class="section-title">
+            ⚙️ Modificación recomendada
+        </div>
+
+        <ul id="modifications">
+        </ul>
+
+    </div>
+
+
+    <!-- =================================================
+         OPTIMIZACIÓN
+    ================================================== -->
+
+    <div class="section">
+
+        <div class="section-title">
+            🚀 Optimización para tu teléfono
+        </div>
 
         <p id="optimization">
             -
         </p>
+
+    </div>
+
+
+    <!-- =================================================
+         TIP
+    ================================================== -->
+
+    <div class="section tip">
+
+        <div class="section-title">
+            💡 TIP de EXOTIC LINOX
+        </div>
+
+        <p id="tip">
+            -
+        </p>
+
+    </div>
+
+
+    <div class="warning">
+
+        Estas recomendaciones son ajustes de rendimiento
+        y configuración. No modifican archivos del juego,
+        no utilizan inyección de archivos y no incluyen
+        métodos para evadir sistemas de seguridad.
 
     </div>
 
@@ -556,13 +609,15 @@ select:focus{
 </div>
 
 
+<!-- FOOTER -->
+
 <div class="footer">
 
-    EXOTIC LINOX AI
+    <strong>EXOTIC LINOX AI</strong>
 
     <br><br>
 
-    Configurador personalizado
+    Configurador personalizado para dispositivos móviles.
 
 </div>
 
@@ -571,9 +626,9 @@ select:focus{
 
 <script>
 
-/* ==========================================
-   FUNCIÓN PARA GENERAR NÚMEROS
-========================================== */
+/* =====================================================
+   GENERADOR DE NÚMEROS
+====================================================== */
 
 function randomNumber(min,max){
 
@@ -584,59 +639,387 @@ function randomNumber(min,max){
 }
 
 
-/* ==========================================
-   COMPROBAR SI ES IPHONE
-========================================== */
+/* =====================================================
+   IPHONE
+====================================================== */
 
-function isIphone(){
-
-    const brand =
-        document.getElementById("brand").value;
-
-    const model =
-        document.getElementById("model").value
-        .toLowerCase();
+function isIphone(brand,model){
 
     return (
         brand === "Apple" ||
-        model.includes("iphone")
+        model.toLowerCase().includes("iphone")
     );
 
 }
 
 
-/* ==========================================
-   GENERAR CONFIGURACIÓN
-========================================== */
+/* =====================================================
+   MODIFICACIONES POR MARCA
+====================================================== */
+
+function getModifications(brand,ram){
+
+    let modifications=[];
+
+
+    if(brand==="Samsung"){
+
+        modifications.push(
+            "Activa el modo de juego/Game Booster si está disponible."
+        );
+
+        modifications.push(
+            "Prioriza una tasa de FPS estable antes que gráficos máximos."
+        );
+
+        modifications.push(
+            "Cierra aplicaciones que estén funcionando en segundo plano."
+        );
+
+        modifications.push(
+            "Evita jugar mientras el dispositivo esté demasiado caliente."
+        );
+
+    }
+
+
+    else if(
+        brand==="Redmi" ||
+        brand==="POCO" ||
+        brand==="Xiaomi"
+    ){
+
+        modifications.push(
+            "Utiliza Game Turbo si está disponible en tu dispositivo."
+        );
+
+        modifications.push(
+            "Prioriza FPS estables dentro de los ajustes del juego."
+        );
+
+        modifications.push(
+            "Reduce aplicaciones en segundo plano antes de jugar."
+        );
+
+        modifications.push(
+            "Mantén controlada la temperatura durante sesiones largas."
+        );
+
+    }
+
+
+    else if(brand==="TECNO"){
+
+        modifications.push(
+            "Utiliza el modo de juego o rendimiento disponible."
+        );
+
+        modifications.push(
+            "Cierra aplicaciones innecesarias antes de iniciar la partida."
+        );
+
+        modifications.push(
+            "Prioriza estabilidad de FPS sobre calidad gráfica."
+        );
+
+    }
+
+
+    else if(brand==="Infinix"){
+
+        modifications.push(
+            "Utiliza el modo de juego disponible en el dispositivo."
+        );
+
+        modifications.push(
+            "Libera memoria cerrando aplicaciones innecesarias."
+        );
+
+        modifications.push(
+            "Mantén una temperatura adecuada durante el juego."
+        );
+
+    }
+
+
+    else if(brand==="Motorola"){
+
+        modifications.push(
+            "Activa GameTime si está disponible."
+        );
+
+        modifications.push(
+            "Evita aplicaciones pesadas ejecutándose en segundo plano."
+        );
+
+        modifications.push(
+            "Prioriza FPS estables para una respuesta más consistente."
+        );
+
+    }
+
+
+    else if(brand==="Apple"){
+
+        modifications.push(
+            "Mantén iOS actualizado a una versión compatible y estable."
+        );
+
+        modifications.push(
+            "Cierra aplicaciones que estén consumiendo recursos innecesariamente."
+        );
+
+        modifications.push(
+            "Evita jugar mientras el iPhone esté excesivamente caliente."
+        );
+
+        modifications.push(
+            "Prioriza estabilidad de FPS sobre calidad gráfica máxima."
+        );
+
+    }
+
+
+    else{
+
+        modifications.push(
+            "Activa el modo juego o rendimiento si tu teléfono dispone de él."
+        );
+
+        modifications.push(
+            "Cierra aplicaciones innecesarias antes de jugar."
+        );
+
+        modifications.push(
+            "Prioriza FPS estables."
+        );
+
+        modifications.push(
+            "Evita temperaturas excesivamente altas."
+        );
+
+    }
+
+
+    if(ram<=4){
+
+        modifications.push(
+            "Por tener poca RAM, evita mantener muchas aplicaciones abiertas."
+        );
+
+    }
+
+
+    if(ram>=12){
+
+        modifications.push(
+            "Tu memoria permite mantener una configuración más exigente, pero controla la temperatura."
+        );
+
+    }
+
+
+    return modifications;
+
+}
+
+
+/* =====================================================
+   OPTIMIZACIÓN POR MARCA
+====================================================== */
+
+function getOptimization(
+    brand,
+    model,
+    ram,
+    level
+){
+
+    let text="";
+
+
+    if(brand==="Samsung"){
+
+        text=
+        "En Samsung, prioriza FPS estables y utiliza las "
+        +"herramientas de juego disponibles en el sistema. "
+        +"Si notas calentamiento, reduce la carga gráfica.";
+
+    }
+
+
+    else if(
+        brand==="Redmi" ||
+        brand==="POCO" ||
+        brand==="Xiaomi"
+    ){
+
+        text=
+        "En dispositivos Xiaomi, Redmi y POCO, Game Turbo "
+        +"puede ayudarte a concentrar recursos en el juego "
+        +"cuando esté disponible. Mantén las aplicaciones "
+        +"innecesarias cerradas.";
+
+    }
+
+
+    else if(brand==="TECNO"){
+
+        text=
+        "En TECNO, utiliza las funciones de juego disponibles "
+        +"y prioriza estabilidad de FPS. Evita jugar con el "
+        +"dispositivo excesivamente caliente.";
+
+    }
+
+
+    else if(brand==="Infinix"){
+
+        text=
+        "En Infinix, utiliza las herramientas de juego "
+        +"disponibles y mantén suficiente memoria libre "
+        +"para favorecer la estabilidad.";
+
+    }
+
+
+    else if(brand==="Motorola"){
+
+        text=
+        "En Motorola, utiliza GameTime si está disponible "
+        +"y prioriza una tasa de FPS estable.";
+
+    }
+
+
+    else if(brand==="Apple"){
+
+        text=
+        "En iPhone no se recomienda modificar DPI. "
+        +"Utiliza únicamente los ajustes disponibles en "
+        +"iOS y dentro del propio juego.";
+
+    }
+
+
+    else{
+
+        text=
+        "Utiliza el modo de juego o rendimiento disponible "
+        +"en tu dispositivo y prioriza estabilidad de FPS.";
+
+    }
+
+
+    if(ram<=4){
+
+        text +=
+        " Debido a la RAM limitada, evita mantener "
+        +"muchas aplicaciones abiertas.";
+
+    }
+
+    else if(ram>=12){
+
+        text +=
+        " La cantidad de RAM permite una experiencia "
+        +"multitarea más cómoda, pero la temperatura "
+        +"sigue siendo importante.";
+
+    }
+
+
+    if(level==="high"){
+
+        text +=
+        " Con sensibilidad alta, busca estabilidad de "
+        +"FPS para que los movimientos sean consistentes.";
+
+    }
+
+    else if(level==="medium"){
+
+        text +=
+        " Con sensibilidad media, busca un equilibrio "
+        +"entre control y velocidad.";
+
+    }
+
+    else{
+
+        text +=
+        " Con sensibilidad baja, prioriza control y "
+        +"movimientos precisos.";
+
+    }
+
+
+    return text;
+
+}
+
+
+/* =====================================================
+   TIPS
+====================================================== */
+
+function getTip(level,fingers,brand){
+
+    if(level==="high"){
+
+        if(fingers<=2){
+
+            return "Con sensibilidad alta y 2 dedos, prueba un botón de disparo relativamente grande y realiza movimientos cortos para evitar pasarte del objetivo.";
+
+        }
+
+        return "Con sensibilidad alta, realiza movimientos cortos y controlados. Si la mira se mueve demasiado, baja ligeramente la sensibilidad después de probarla.";
+
+    }
+
+
+    if(level==="medium"){
+
+        return "La sensibilidad media busca equilibrio. Prueba primero la configuración durante varias partidas y cambia solamente un parámetro cada vez.";
+
+    }
+
+
+    return "La sensibilidad baja prioriza el control. Haz movimientos más amplios y ajusta progresivamente el botón de disparo si necesitas mayor comodidad.";
+
+}
+
+
+/* =====================================================
+   GENERAR
+====================================================== */
 
 function generateConfig(){
 
-    const brand =
+    const brand=
         document.getElementById("brand").value;
 
-    const model =
+    const model=
         document.getElementById("model").value.trim();
 
-    const level =
+    const level=
         document.getElementById("level").value;
 
-    const ram =
+    const ram=
         Number(
             document.getElementById("ram").value
         );
 
-    const fingers =
+    const fingers=
         Number(
             document.getElementById("fingers").value
         );
 
 
-    /* COMPROBAR DATOS */
-
-    if(brand === ""){
+    if(brand===""){
 
         alert(
-            "⚠️ Selecciona la marca de tu teléfono."
+            "⚠️ Selecciona la marca del teléfono."
         );
 
         return;
@@ -644,18 +1027,16 @@ function generateConfig(){
     }
 
 
-    if(model === ""){
+    if(model===""){
 
         alert(
-            "⚠️ Escribe el modelo de tu teléfono."
+            "⚠️ Escribe el modelo del teléfono."
         );
 
         return;
 
     }
 
-
-    /* VARIABLES */
 
     let general;
     let redDot;
@@ -666,405 +1047,84 @@ function generateConfig(){
     let dpi;
 
 
-    /* ======================================
-       SENSIBILIDAD ALTA
-       GENERAL 170 - 200
-    ====================================== */
+    /* ==========================================
+       ALTA
+    ========================================== */
 
-    if(level === "high"){
+    if(level==="high"){
 
-        general =
+        general=
             randomNumber(170,200);
 
-        redDot =
+        redDot=
             randomNumber(170,200);
 
-        scope2 =
+        scope2=
             randomNumber(170,200);
 
-        scope4 =
+        scope4=
             randomNumber(170,200);
 
-        awm =
+        awm=
             randomNumber(170,200);
 
-        fireButton =
+        fireButton=
             randomNumber(65,83);
 
-        if(isIphone()){
-
-            dpi =
-                "No disponible";
-
-        }else{
-
-            dpi =
-                randomNumber(520,620);
-
-        }
+        dpi=
+            isIphone(brand,model)
+            ? "No disponible en iPhone"
+            : randomNumber(520,620);
 
     }
 
 
-    /* ======================================
-       SENSIBILIDAD MEDIA
-       GENERAL 130 - 160
-    ====================================== */
+    /* ==========================================
+       MEDIA
+    ========================================== */
 
-    if(level === "medium"){
+    else if(level==="medium"){
 
-        general =
+        general=
             randomNumber(130,160);
 
-        redDot =
+        redDot=
             randomNumber(130,160);
 
-        scope2 =
+        scope2=
             randomNumber(130,160);
 
-        scope4 =
+        scope4=
             randomNumber(130,160);
 
-        awm =
+        awm=
             randomNumber(130,160);
 
-        fireButton =
+        fireButton=
             randomNumber(38,57);
 
-        if(isIphone()){
-
-            dpi =
-                "No disponible";
-
-        }else{
-
-            dpi =
-                randomNumber(450,520);
-
-        }
+        dpi=
+            isIphone(brand,model)
+            ? "No disponible en iPhone"
+            : randomNumber(450,520);
 
     }
 
 
-    /* ======================================
-       SENSIBILIDAD BAJA
-       GENERAL 75 - 125
-    ====================================== */
-
-    if(level === "low"){
-
-        general =
-            randomNumber(75,125);
-
-        redDot =
-            randomNumber(75,125);
-
-        scope2 =
-            randomNumber(75,125);
-
-        scope4 =
-            randomNumber(75,125);
-
-        awm =
-            randomNumber(75,125);
-
-        fireButton =
-            randomNumber(38,57);
-
-        if(isIphone()){
-
-            dpi =
-                "No disponible";
-
-        }else{
-
-            dpi =
-                randomNumber(360,450);
-
-        }
-
-    }
-
-
-    /* ======================================
-       AJUSTE POR RAM
-    ====================================== */
-
-    if(ram <= 4){
-
-        general =
-            Math.max(75,general - 2);
-
-        redDot =
-            Math.max(75,redDot - 2);
-
-    }
-
-
-    if(ram >= 12){
-
-        general =
-            Math.min(200,general + 2);
-
-        redDot =
-            Math.min(200,redDot + 2);
-
-    }
-
-
-    /* ======================================
-       AJUSTE POR DEDOS
-    ====================================== */
-
-    if(fingers >= 4){
-
-        fireButton =
-            Math.max(38,fireButton - 2);
-
-    }
-
-
-    if(fingers === 2){
-
-        fireButton =
-            Math.min(83,fireButton + 2);
-
-    }
-
-
-    /* ======================================
-       MOSTRAR RESULTADO
-    ====================================== */
-
-    document.getElementById(
-        "deviceResult"
-    ).textContent =
-        brand + " " + model;
-
-
-    document.getElementById(
-        "general"
-    ).textContent =
-        general;
-
-
-    document.getElementById(
-        "redDot"
-    ).textContent =
-        redDot;
-
-
-    document.getElementById(
-        "scope2"
-    ).textContent =
-        scope2;
-
-
-    document.getElementById(
-        "scope4"
-    ).textContent =
-        scope4;
-
-
-    document.getElementById(
-        "awm"
-    ).textContent =
-        awm;
-
-
-    document.getElementById(
-        "fireButton"
-    ).textContent =
-        fireButton + "%";
-
-
-    document.getElementById(
-        "dpi"
-    ).textContent =
-        dpi;
-
-
-    /* ======================================
-       OPTIMIZACIÓN
-    ====================================== */
-
-    let optimization = "";
-
-
-    if(ram <= 4){
-
-        optimization =
-            "Usa gráficos moderados, prioriza FPS estables, "
-            + "cierra aplicaciones en segundo plano y evita "
-            + "jugar mientras el teléfono esté demasiado caliente.";
-
-    }
-
-    else if(ram <= 8){
-
-        optimization =
-            "Prioriza FPS estables, cierra aplicaciones "
-            + "innecesarias antes de jugar y utiliza el modo "
-            + "juego o rendimiento si tu dispositivo lo incluye.";
-
-    }
+    /* ==========================================
+       BAJA
+    ========================================== */
 
     else{
 
-        optimization =
-            "Tu dispositivo tiene suficiente memoria para "
-            + "priorizar una experiencia fluida. Mantén "
-            + "aplicaciones innecesarias cerradas y controla "
-            + "la temperatura del teléfono.";
+        general=
+            randomNumber(75,125);
 
-    }
+        redDot=
+            randomNumber(75,125);
 
+        scope2=
+            randomNumber(75,125);
 
-    document.getElementById(
-        "optimization"
-    ).textContent =
-        optimization;
-
-
-    /* ======================================
-       MOSTRAR TARJETA
-    ====================================== */
-
-    const result =
-        document.getElementById("result");
-
-    result.style.display =
-        "block";
-
-
-    result.scrollIntoView({
-        behavior:"smooth"
-    });
-
-}
-
-
-/* ==========================================
-   BOTÓN GENERAR
-========================================== */
-
-document.getElementById(
-    "generateButton"
-).addEventListener(
-    "click",
-    generateConfig
-);
-
-
-/* ==========================================
-   COPIAR
-========================================== */
-
-document.getElementById(
-    "copyButton"
-).addEventListener(
-    "click",
-    function(){
-
-        const text =
-
-`🔥 EXOTIC LINOX AI
-
-📱 Dispositivo:
-${document.getElementById("deviceResult").textContent}
-
-🎯 Sensibilidad
-
-General:
-${document.getElementById("general").textContent}
-
-Punto rojo:
-${document.getElementById("redDot").textContent}
-
-Mira 2X:
-${document.getElementById("scope2").textContent}
-
-Mira 4X:
-${document.getElementById("scope4").textContent}
-
-AWM:
-${document.getElementById("awm").textContent}
-
-🔘 Botón:
-${document.getElementById("fireButton").textContent}
-
-📱 DPI:
-${document.getElementById("dpi").textContent}
-
-⚙️ Optimización:
-${document.getElementById("optimization").textContent}
-
-🤖 Generado por EXOTIC LINOX AI`;
-
-
-        if(
-            navigator.clipboard &&
-            window.isSecureContext
-        ){
-
-            navigator.clipboard
-            .writeText(text)
-            .then(function(){
-
-                alert(
-                    "✅ Configuración copiada."
-                );
-
-            })
-            .catch(function(){
-
-                alert(
-                    "❌ No se pudo copiar."
-                );
-
-            });
-
-        }else{
-
-            /* MÉTODO ALTERNATIVO */
-
-            const textarea =
-                document.createElement("textarea");
-
-            textarea.value = text;
-
-            document.body.appendChild(
-                textarea
-            );
-
-            textarea.select();
-
-            try{
-
-                document.execCommand("copy");
-
-                alert(
-                    "✅ Configuración copiada."
-                );
-
-            }catch(error){
-
-                alert(
-                    "❌ No se pudo copiar."
-                );
-
-            }
-
-            document.body.removeChild(
-                textarea
-            );
-
-        }
-
-    }
-);
-
-</script>
-
-</body>
-    </html>
+        scope4=
+         
