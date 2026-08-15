@@ -2,74 +2,1115 @@
 <html lang="es">
 <head>
 <meta charset="UTF-8">
-<title>EXÓTIC LINOX V13.1 FULL</title>
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="theme-color" content="#0b0b12">
+
+<title>FF Config AI</title>
+
 <style>
-body{background:#000;color:#00ff88;font-family:Arial;padding:10px}
-h1,h2{text-align:center;color:#00ff88}
-.box{background:#111;border:1px solid #00ff88;padding:10px;margin:10px 0;border-radius:8px}
-button{background:#00ff88;color:#000;border:none;padding:8px;margin:3px;border-radius:5px;font-weight:bold;cursor:pointer;font-size:12px;width:48%}
-.copy{background:#ff00ff;color:#fff;width:100%}
-#login,#panel{display:none}
+*{
+    box-sizing:border-box;
+    margin:0;
+    padding:0;
+}
+
+body{
+    font-family:Arial,Helvetica,sans-serif;
+    background:#080810;
+    color:#fff;
+    min-height:100vh;
+}
+
+.container{
+    width:100%;
+    max-width:900px;
+    margin:auto;
+    padding:20px;
+}
+
+.header{
+    text-align:center;
+    padding:25px 10px;
+}
+
+.logo{
+    font-size:38px;
+    font-weight:900;
+}
+
+.logo span{
+    color:#ff3b30;
+}
+
+.subtitle{
+    color:#aaa;
+    margin-top:8px;
+}
+
+.card{
+    background:#11111b;
+    border:1px solid #252536;
+    border-radius:18px;
+    padding:20px;
+    margin-top:18px;
+    box-shadow:0 10px 35px rgba(0,0,0,.25);
+}
+
+label{
+    display:block;
+    font-size:14px;
+    color:#aaa;
+    margin-bottom:7px;
+}
+
+input,select{
+    width:100%;
+    padding:14px;
+    border-radius:12px;
+    border:1px solid #303044;
+    background:#191925;
+    color:#fff;
+    outline:none;
+    margin-bottom:15px;
+}
+
+input:focus,select:focus{
+    border-color:#ff3b30;
+}
+
+button{
+    width:100%;
+    border:0;
+    padding:15px;
+    border-radius:12px;
+    font-weight:800;
+    font-size:16px;
+    cursor:pointer;
+}
+
+.generate{
+    background:#ff3b30;
+    color:#fff;
+    margin-top:5px;
+}
+
+.generate:hover{
+    opacity:.9;
+}
+
+.result{
+    display:none;
+}
+
+.result h2{
+    margin-bottom:15px;
+}
+
+.config{
+    display:grid;
+    grid-template-columns:repeat(2,1fr);
+    gap:12px;
+}
+
+.stat{
+    background:#191925;
+    border:1px solid #2c2c40;
+    padding:15px;
+    border-radius:13px;
+}
+
+.stat small{
+    color:#999;
+    display:block;
+    margin-bottom:6px;
+}
+
+.stat strong{
+    font-size:23px;
+}
+
+.full{
+    grid-column:1/-1;
+}
+
+.optimization{
+    margin-top:15px;
+    background:#191925;
+    border-radius:13px;
+    padding:15px;
+    line-height:1.6;
+    color:#ddd;
+}
+
+.copy{
+    margin-top:15px;
+    background:#fff;
+    color:#111;
+}
+
+.warning{
+    background:#2a2020;
+    border:1px solid #5b3030;
+    padding:12px;
+    border-radius:12px;
+    color:#ffb3b3;
+    font-size:13px;
+    margin-top:15px;
+}
+
+.footer{
+    text-align:center;
+    color:#666;
+    padding:25px;
+    font-size:12px;
+}
+
+@media(max-width:600px){
+    .config{
+        grid-template-columns:1fr;
+    }
+
+    .full{
+        grid-column:auto;
+    }
+
+    .logo{
+        font-size:30px;
+    }
+}
 </style>
 </head>
+
 <body>
-<div id="login" style="display:block;text-align:center;margin-top:80px">
-<h1>EXÓTIC LINOX V13.1</h1>
-<p>DPI SEGURO: 400-620</p>
-<input type="password" id="pwd" placeholder="Contraseña" style="padding:10px">
-<br><button onclick="entrar()">ENTRAR</button>
+
+<div class="container">
+
+<header class="header">
+    <div class="logo">FF <span>CONFIG AI</span></div>
+    <div class="subtitle">
+        Configurador inteligente de sensibilidad y optimización
+    </div>
+</header>
+
+<div class="card">
+
+    <label>Marca</label>
+    <select id="brand">
+        <option value="">Selecciona una marca</option>
+        <option>Samsung</option>
+        <option>Redmi</option>
+        <option>POCO</option>
+        <option>Xiaomi</option>
+        <option>TECNO</option>
+        <option>Infinix</option>
+        <option>Motorola</option>
+        <option>OnePlus</option>
+        <option>Realme</option>
+        <option>OPPO</option>
+        <option>Vivo</option>
+        <option>Huawei</option>
+        <option>Honor</option>
+        <option>Apple</option>
+        <option>Otra</option>
+    </select>
+
+    <label>Modelo del teléfono</label>
+    <input
+        id="model"
+        list="models"
+        placeholder="Ejemplo: Redmi Note 12"
+        autocomplete="off"
+    >
+
+    <datalist id="models"></datalist>
+
+    <label>Nivel de sensibilidad</label>
+    <select id="level">
+        <option value="high">🔥 Alta</option>
+        <option value="medium">⚡ Media</option>
+        <option value="low">🎮 Baja</option>
+    </select>
+
+    <label>RAM</label>
+    <select id="ram">
+        <option value="4">4 GB</option>
+        <option value="6">6 GB</option>
+        <option value="8" selected>8 GB</option>
+        <option value="12">12 GB</option>
+        <option value="16">16 GB</option>
+    </select>
+
+    <label>Cantidad de dedos</label>
+    <select id="fingers">
+        <option value="2">2 dedos</option>
+        <option value="3">3 dedos</option>
+        <option value="4">4 dedos</option>
+        <option value="5">5 dedos</option>
+        <option value="6">6 dedos</option>
+    </select>
+
+    <button class="generate" onclick="generateConfig()">
+        ⚡ GENERAR CONFIGURACIÓN
+    </button>
+
 </div>
 
-<div id="panel">
-<h1>🔥 EXÓTIC LINOX - DPI 400-620 🔥</h1>
 
-<div class="box">
-<h2>📱 ANDROID CON DPI 400-620</h2>
-<h3>GAMA ALTA 170-200</h3>
-<button onclick="copiar('POCO X6 PRO ALTA\nSENSI: 100-100-100-100-100\nDPI: 620\nDISPARO: 143\nMACRO: 1MS')">Poco X6 Pro Alta</button>
-<button onclick="copiar('S24 ULTRA ALTA\nSENSI: 100-100-100-100-100\nDPI: 600\nDISPARO: 143')">Samsung S24 Ultra</button>
-<button onclick="copiar('MOTOROLA EDGE 50 ALTA\nSENSI: 100-100-100-100-100\nDPI: 580\nDISPARO: 143')">Motorola Edge 50</button>
+<div class="card result" id="result">
 
-<h3>GAMA MEDIA 125-160</h3>
-<button onclick="copiar('POCO X5 MEDIA\nSENSI: 90-90-90-90-90\nDPI: 520\nDISPARO: 56-83')">Poco X5 Media</button>
-<button onclick="copiar('SAMSUNG A54 MEDIA\nSENSI: 90-90-90-90-90\nDPI: 500\nDISPARO: 56-83')">Samsung A54</button>
-<button onclick="copiar('MOTOROLA G84 MEDIA\nSENSI: 90-90-90-90-90\nDPI: 480\nDISPARO: 56-83')">Motorola G84</button>
+    <h2>🔥 Tu configuración</h2>
 
-<h3>GAMA BAJA 85-140</h3>
-<button onclick="copiar('REDMI 12C BAJA\nSENSI: 80-80-80-80-80\nDPI: 420\nDISPARO: 37-52')">Redmi 12C</button>
-<button onclick="copiar('SAMSUNG A05 BAJA\nSENSI: 80-80-80-80-80\nDPI: 400\nDISPARO: 37-52')">Samsung A05</button>
-<button onclick="copiar('MOTOROLA E13 BAJA\nSENSI: 80-80-80-80-80\nDPI: 410\nDISPARO: 37-52')">Motorola E13</button>
+    <div class="config">
+
+        <div class="stat">
+            <small>General</small>
+            <strong id="general"></strong>
+        </div>
+
+        <div class="stat">
+            <small>Punto rojo</small>
+            <strong id="redDot"></strong>
+        </div>
+
+        <div class="stat">
+            <small>Mira 2X</small>
+            <strong id="scope2"></strong>
+        </div>
+
+        <div class="stat">
+            <small>Mira 4X</small>
+            <strong id="scope4"></strong>
+        </div>
+
+        <div class="stat">
+            <small>Mira AWM</small>
+            <strong id="awm"></strong>
+        </div>
+
+        <div class="stat">
+            <small>Botón de disparo</small>
+            <strong id="fireButton"></strong>
+        </div>
+
+        <div class="stat full">
+            <small>DPI</small>
+            <strong id="dpi"></strong>
+        </div>
+
+    </div>
+
+    <div class="optimization">
+        <strong>⚙️ Optimización recomendada</strong>
+        <p id="optimization"></p>
+    </div>
+
+    <div class="warning">
+        Esta herramienta genera configuraciones orientativas. No modifica
+        directamente los archivos del juego ni proporciona métodos para
+        evadir sistemas de seguridad o anti-cheat.
+    </div>
+
+    <button class="copy" onclick="copyConfig()">
+        📋 COPIAR CONFIGURACIÓN
+    </button>
+
 </div>
 
-<div class="box">
-<h2>🍎 IPHONE SIN DPI</h2>
-<h3>GAMA ALTA 170-200</h3>
-<button onclick="copiar('IPHONE 15 PRO ALTA\nSENSI: 60-60-60-60-60\nSIN DPI\nDISPARO: 143')">iPhone 15 Pro</button>
-<button onclick="copiar('IPHONE 14 PRO ALTA\nSENSI: 60-60-60-60-60\nSIN DPI\nDISPARO: 143')">iPhone 14 Pro</button>
-
-<h3>GAMA MEDIA 125-160</h3>
-<button onclick="copiar('IPHONE 13 MEDIA\nSENSI: 55-55-55-55-55\nSIN DPI\nDISPARO: 56-83')">iPhone 13</button>
-<button onclick="copiar('IPHONE 12 MEDIA\nSENSI: 55-55-55-55-55\nSIN DPI\nDISPARO: 56-83')">iPhone 12</button>
-
-<h3>GAMA BAJA 85-140</h3>
-<button onclick="copiar('IPHONE 11 BAJA\nSENSI: 50-50-50-50-50\nSIN DPI\nDISPARO: 37-52')">iPhone 11</button>
-<button onclick="copiar('IPHONE XR BAJA\nSENSI: 50-50-50-50-50\nSIN DPI\nDISPARO: 37-52')">iPhone XR</button>
+<div class="footer">
+    FF CONFIG AI • Configuración personalizada
 </div>
 
-<button class="copy" onclick="copiar('EXÓTIC LINOX V13.1\nTODOS LOS MODELOS DPI 400-620\nLISTOS PARA USAR')">COPIAR TODOS LOS DATOS</button>
 </div>
+
 
 <script>
-function entrar(){
-if(document.getElementById('pwd').value.toLowerCase()==='exotic linox'){
-document.getElementById('login').style.display='none';
-document.getElementById('panel').style.display='block';
-}else{alert('Contraseña incorrecta')}
+
+/* =========================================================
+   BASE DE DATOS DE DISPOSITIVOS
+   ========================================================= */
+
+const devices = {
+
+Samsung: [
+
+"Galaxy A05",
+"Galaxy A05s",
+"Galaxy A06",
+"Galaxy A12",
+"Galaxy A13",
+"Galaxy A14",
+"Galaxy A15",
+"Galaxy A16",
+"Galaxy A20",
+"Galaxy A21s",
+"Galaxy A22",
+"Galaxy A23",
+"Galaxy A24",
+"Galaxy A25",
+"Galaxy A30",
+"Galaxy A31",
+"Galaxy A32",
+"Galaxy A33",
+"Galaxy A34",
+"Galaxy A35",
+"Galaxy A50",
+"Galaxy A51",
+"Galaxy A52",
+"Galaxy A52s",
+"Galaxy A53",
+"Galaxy A54",
+"Galaxy A55",
+"Galaxy A70",
+"Galaxy A71",
+"Galaxy A72",
+"Galaxy A73",
+
+"Galaxy S20",
+"Galaxy S20+",
+"Galaxy S20 Ultra",
+"Galaxy S21",
+"Galaxy S21+",
+"Galaxy S21 Ultra",
+"Galaxy S22",
+"Galaxy S22+",
+"Galaxy S22 Ultra",
+"Galaxy S23",
+"Galaxy S23+",
+"Galaxy S23 Ultra",
+"Galaxy S24",
+"Galaxy S24+",
+"Galaxy S24 Ultra",
+"Galaxy S25",
+"Galaxy S25+",
+"Galaxy S25 Ultra",
+"Galaxy S26",
+"Galaxy S26+",
+"Galaxy S26 Ultra",
+
+"Galaxy Note 10",
+"Galaxy Note 10+",
+"Galaxy Note 20",
+"Galaxy Note 20 Ultra",
+
+"Galaxy M12",
+"Galaxy M13",
+"Galaxy M14",
+"Galaxy M15",
+"Galaxy M21",
+"Galaxy M22",
+"Galaxy M23",
+"Galaxy M31",
+"Galaxy M32",
+"Galaxy M33",
+"Galaxy M34",
+"Galaxy M51",
+"Galaxy M52",
+"Galaxy M53",
+"Galaxy M54",
+"Galaxy M55"
+
+],
+
+Redmi: [
+
+"Redmi 9",
+"Redmi 9A",
+"Redmi 9C",
+"Redmi 9T",
+"Redmi 10",
+"Redmi 10A",
+"Redmi 10C",
+"Redmi 10 2022",
+"Redmi 11",
+"Redmi 12",
+"Redmi 12C",
+"Redmi 13",
+"Redmi 13C",
+"Redmi 14",
+"Redmi 14C",
+
+"Redmi Note 8",
+"Redmi Note 8 Pro",
+"Redmi Note 9",
+"Redmi Note 9 Pro",
+"Redmi Note 10",
+"Redmi Note 10 Pro",
+"Redmi Note 11",
+"Redmi Note 11 Pro",
+"Redmi Note 12",
+"Redmi Note 12 Pro",
+"Redmi Note 13",
+"Redmi Note 13 Pro",
+"Redmi Note 14",
+"Redmi Note 14 Pro"
+
+],
+
+POCO: [
+
+"POCO X3",
+"POCO X3 NFC",
+"POCO X3 Pro",
+"POCO X4 Pro",
+"POCO X5",
+"POCO X5 Pro",
+"POCO X6",
+"POCO X6 Pro",
+"POCO X7",
+"POCO X7 Pro",
+
+"POCO F3",
+"POCO F4",
+"POCO F5",
+"POCO F5 Pro",
+"POCO F6",
+"POCO F6 Pro",
+
+"POCO M3",
+"POCO M4 Pro",
+"POCO M5",
+"POCO M5s",
+"POCO M6",
+"POCO M6 Pro"
+
+],
+
+Xiaomi: [
+
+"Xiaomi 11T",
+"Xiaomi 11T Pro",
+"Xiaomi 12",
+"Xiaomi 12 Pro",
+"Xiaomi 12T",
+"Xiaomi 12T Pro",
+"Xiaomi 13",
+"Xiaomi 13 Pro",
+"Xiaomi 13T",
+"Xiaomi 13T Pro",
+"Xiaomi 14",
+"Xiaomi 14 Pro",
+"Xiaomi 14T",
+"Xiaomi 14T Pro",
+"Xiaomi 15",
+"Xiaomi 15 Pro",
+"Xiaomi 15 Ultra"
+
+],
+
+TECNO: [
+
+"TECNO Spark 8",
+"TECNO Spark 9",
+"TECNO Spark 10",
+"TECNO Spark 10 Pro",
+"TECNO Spark 20",
+"TECNO Spark 20 Pro",
+"TECNO Spark 20 Pro+",
+"TECNO Spark 30",
+"TECNO Spark 30 Pro",
+"TECNO Camon 18",
+"TECNO Camon 19",
+"TECNO Camon 20",
+"TECNO Camon 20 Pro",
+"TECNO Camon 30",
+"TECNO Camon 30 Pro",
+"TECNO Pova 4",
+"TECNO Pova 5",
+"TECNO Pova 6",
+"TECNO Pova 6 Pro"
+
+],
+
+Infinix: [
+
+"Infinix Hot 10",
+"Infinix Hot 11",
+"Infinix Hot 12",
+"Infinix Hot 20",
+"Infinix Hot 30",
+"Infinix Hot 40",
+"Infinix Hot 50",
+"Infinix Note 10",
+"Infinix Note 11",
+"Infinix Note 12",
+"Infinix Note 30",
+"Infinix Note 40",
+"Infinix GT 10 Pro",
+"Infinix GT 20 Pro",
+"Infinix GT 30 Pro"
+
+],
+
+Motorola: [
+
+"Moto G20",
+"Moto G30",
+"Moto G31",
+"Moto G32",
+"Moto G42",
+"Moto G52",
+"Moto G53",
+"Moto G54",
+"Moto G55",
+"Moto G60",
+"Moto G62",
+"Moto G72",
+"Moto G73",
+"Moto G84",
+"Moto G85",
+"Motorola Edge 30",
+"Motorola Edge 40",
+"Motorola Edge 50",
+"Motorola Edge 60"
+
+],
+
+OnePlus: [
+
+"OnePlus 8",
+"OnePlus 8T",
+"OnePlus 9",
+"OnePlus 9 Pro",
+"OnePlus 10 Pro",
+"OnePlus 11",
+"OnePlus 12",
+"OnePlus 13",
+"OnePlus Nord 2",
+"OnePlus Nord 3",
+"OnePlus Nord 4",
+"OnePlus Nord CE 3",
+"OnePlus Nord CE 4"
+
+],
+
+Realme: [
+
+"Realme 8",
+"Realme 9",
+"Realme 10",
+"Realme 11",
+"Realme 12",
+"Realme 13",
+"Realme C25",
+"Realme C35",
+"Realme C53",
+"Realme C55",
+"Realme C67",
+"Realme GT Neo 3",
+"Realme GT Neo 5",
+"Realme GT 6"
+
+],
+
+OPPO: [
+
+"OPPO A16",
+"OPPO A17",
+"OPPO A18",
+"OPPO A38",
+"OPPO A58",
+"OPPO A78",
+"OPPO A79",
+"OPPO Reno 6",
+"OPPO Reno 7",
+"OPPO Reno 8",
+"OPPO Reno 10",
+"OPPO Reno 11",
+"OPPO Reno 12",
+"OPPO Find X5",
+"OPPO Find X6",
+"OPPO Find X7",
+"OPPO Find X8"
+
+],
+
+Vivo: [
+
+"Vivo Y20",
+"Vivo Y21",
+"Vivo Y22",
+"Vivo Y27",
+"Vivo Y36",
+"Vivo Y55",
+"Vivo V23",
+"Vivo V25",
+"Vivo V27",
+"Vivo V29",
+"Vivo V30",
+"Vivo V40",
+"Vivo X80",
+"Vivo X90",
+"Vivo X100"
+
+],
+
+Huawei: [
+
+"Huawei P30",
+"Huawei P40",
+"Huawei P50",
+"Huawei P60",
+"Huawei Mate 20",
+"Huawei Mate 30",
+"Huawei Mate 40",
+"Huawei Mate 50",
+"Huawei Nova 8",
+"Huawei Nova 9",
+"Huawei Nova 10",
+"Huawei Nova 11",
+"Huawei Nova 12"
+
+],
+
+Honor: [
+
+"Honor X7",
+"Honor X8",
+"Honor X9",
+"Honor X10",
+"Honor X20",
+"Honor X30",
+"Honor X40",
+"Honor X50",
+"Honor 50",
+"Honor 70",
+"Honor 90",
+"Honor 100",
+"Honor Magic 5",
+"Honor Magic 6",
+"Honor Magic 7"
+
+],
+
+Apple: [
+
+"iPhone 8",
+"iPhone 8 Plus",
+"iPhone X",
+"iPhone XR",
+"iPhone XS",
+"iPhone XS Max",
+"iPhone 11",
+"iPhone 11 Pro",
+"iPhone 11 Pro Max",
+"iPhone 12",
+"iPhone 12 mini",
+"iPhone 12 Pro",
+"iPhone 12 Pro Max",
+"iPhone 13",
+"iPhone 13 mini",
+"iPhone 13 Pro",
+"iPhone 13 Pro Max",
+"iPhone 14",
+"iPhone 14 Plus",
+"iPhone 14 Pro",
+"iPhone 14 Pro Max",
+"iPhone 15",
+"iPhone 15 Plus",
+"iPhone 15 Pro",
+"iPhone 15 Pro Max",
+"iPhone 16",
+"iPhone 16 Plus",
+"iPhone 16 Pro",
+"iPhone 16 Pro Max",
+"iPhone 17",
+"iPhone 17 Pro",
+"iPhone 17 Pro Max"
+
+]
+
+};
+
+
+/* =========================================================
+   CARGAR MODELOS
+   ========================================================= */
+
+const modelList = document.getElementById("models");
+
+Object.values(devices).flat().forEach(model => {
+
+    const option = document.createElement("option");
+
+    option.value = model;
+
+    modelList.appendChild(option);
+
+});
+
+
+/* =========================================================
+   FUNCIONES ALEATORIAS CONTROLADAS
+   ========================================================= */
+
+function randomBetween(min,max){
+
+    return Math.floor(
+        Math.random() * (max - min + 1)
+    ) + min;
+
 }
-function copiar(texto){
-navigator.clipboard.writeText(texto);
-alert('COPIADO CORRECTAMENTE ✅\n\n'+texto);
+
+
+/* =========================================================
+   DETECTAR SISTEMA
+   ========================================================= */
+
+function isIphone(brand,model){
+
+    return brand === "Apple" ||
+           model.toLowerCase().includes("iphone");
+
 }
+
+
+/* =========================================================
+   GENERAR CONFIGURACIÓN
+   ========================================================= */
+
+function generateConfig(){
+
+    const brand =
+        document.getElementById("brand").value;
+
+    const model =
+        document.getElementById("model").value;
+
+    const level =
+        document.getElementById("level").value;
+
+    const ram =
+        Number(document.getElementById("ram").value);
+
+    const fingers =
+        Number(document.getElementById("fingers").value);
+
+
+    if(!brand || !model){
+
+        alert("Selecciona la marca y escribe el modelo.");
+
+        return;
+
+    }
+
+
+    let general;
+    let redDot;
+    let scope2;
+    let scope4;
+    let awm;
+    let fireButton;
+    let dpi;
+
+
+    /* =========================
+       SENSIBILIDAD ALTA
+       ========================= */
+
+    if(level === "high"){
+
+        general = randomBetween(185,200);
+
+        redDot = randomBetween(180,198);
+
+        scope2 = randomBetween(175,195);
+
+        scope4 = randomBetween(170,190);
+
+        awm = randomBetween(170,185);
+
+        fireButton = randomBetween(65,83);
+
+        if(!isIphone(brand,model)){
+
+            dpi = randomBetween(520,620);
+
+        }else{
+
+            dpi = "No disponible en iPhone";
+
+        }
+
+    }
+
+
+    /* =========================
+       SENSIBILIDAD MEDIA
+       ========================= */
+
+    if(level === "medium"){
+
+        general = randomBetween(140,160);
+
+        redDot = randomBetween(135,158);
+
+        scope2 = randomBetween(130,155);
+
+        scope4 = randomBetween(130,150);
+
+        awm = randomBetween(130,145);
+
+        fireButton = randomBetween(38,57);
+
+        if(!isIphone(brand,model)){
+
+            dpi = randomBetween(450,520);
+
+        }else{
+
+            dpi = "No disponible en iPhone";
+
+        }
+
+    }
+
+
+    /* =========================
+       SENSIBILIDAD BAJA
+       ========================= */
+
+    if(level === "low"){
+
+        general = randomBetween(90,125);
+
+        redDot = randomBetween(85,120);
+
+        scope2 = randomBetween(80,115);
+
+        scope4 = randomBetween(75,110);
+
+        awm = randomBetween(75,105);
+
+        fireButton = randomBetween(38,57);
+
+        if(!isIphone(brand,model)){
+
+            dpi = randomBetween(360,450);
+
+        }else{
+
+            dpi = "No disponible en iPhone";
+
+        }
+
+    }
+
+
+    /* =====================================================
+       AJUSTE SEGÚN RAM
+       ===================================================== */
+
+    if(ram <= 4){
+
+        general -= 2;
+        redDot -= 2;
+
+    }
+
+    if(ram >= 12){
+
+        general += 1;
+        redDot += 1;
+
+    }
+
+
+    /* =====================================================
+       AJUSTE SEGÚN CANTIDAD DE DEDOS
+       ===================================================== */
+
+    if(fingers >= 4){
+
+        fireButton -= 2;
+
+    }
+
+    if(fingers === 2){
+
+        fireButton += 2;
+
+    }
+
+
+    /* =====================================================
+       LIMITES ABSOLUTOS
+       ===================================================== */
+
+    general = Math.min(200,Math.max(75,general));
+
+    redDot = Math.min(200,Math.max(75,redDot));
+
+    scope2 = Math.min(200,Math.max(75,scope2));
+
+    scope4 = Math.min(200,Math.max(75,scope4));
+
+    awm = Math.min(200,Math.max(75,awm));
+
+
+    /* =====================================================
+       MOSTRAR RESULTADO
+       ===================================================== */
+
+    document.getElementById("general").textContent =
+        general;
+
+    document.getElementById("redDot").textContent =
+        redDot;
+
+    document.getElementById("scope2").textContent =
+        scope2;
+
+    document.getElementById("scope4").textContent =
+        scope4;
+
+    document.getElementById("awm").textContent =
+        awm;
+
+    document.getElementById("fireButton").textContent =
+        fireButton + "%";
+
+    document.getElementById("dpi").textContent =
+        dpi;
+
+
+    document.getElementById("optimization").textContent =
+        getOptimization(
+            brand,
+            model,
+            ram,
+            fingers,
+            level
+        );
+
+
+    document.getElementById("result").style.display =
+        "block";
+
+
+    document.getElementById("result").scrollIntoView({
+
+        behavior:"smooth"
+
+    });
+
+}
+
+
+/* =========================================================
+   OPTIMIZACIÓN
+   ========================================================= */
+
+function getOptimization(
+    brand,
+    model,
+    ram,
+    fingers,
+    level
+){
+
+    let text = "";
+
+    if(ram <= 4){
+
+        text +=
+        "Usa gráficos moderados y prioriza estabilidad de FPS. ";
+
+    }
+
+    else if(ram <= 8){
+
+        text +=
+        "Prioriza FPS estables y evita mantener muchas aplicaciones abiertas. ";
+
+    }
+
+    else{
+
+        text +=
+        "El dispositivo dispone de suficiente memoria para priorizar una experiencia fluida. ";
+
+    }
+
+
+    if(level === "high"){
+
+        text +=
+        "Para sensibilidad alta, utiliza movimientos de dedo controlados y evita subir todos los parámetros al máximo sin probarlos.";
+
+    }
+
+    if(level === "medium"){
+
+        text +=
+        "La sensibilidad media busca un equilibrio entre control y velocidad.";
+
+    }
+
+    if(level === "low"){
+
+        text +=
+        "La sensibilidad baja prioriza mayor control del movimiento.";
+
+    }
+
+
+    text +=
+        " Mantén el teléfono a una temperatura normal, cierra aplicaciones innecesarias y utiliza el modo de juego/rendimiento del fabricante si está disponible.";
+
+    return text;
+
+}
+
+
+/* =========================================================
+   COPIAR CONFIGURACIÓN
+   ========================================================= */
+
+function copyConfig(){
+
+    const text = `
+
+🔥 FF CONFIG AI
+
+📱 Dispositivo:
+${document.getElementById("brand").value}
+${document.getElementById("model").value}
+
+🎯 SENSIBILIDAD
+
+General: ${document.getElementById("general").textContent}
+Punto rojo: ${document.getElementById("redDot").textContent}
+Mira 2X: ${document.getElementById("scope2").textContent}
+Mira 4X: ${document.getElementById("scope4").textContent}
+AWM: ${document.getElementById("awm").textContent}
+
+🔘 Botón de disparo:
+${document.getElementById("fireButton").textContent}
+
+📱 DPI:
+${document.getElementById("dpi").textContent}
+
+⚙️ Optimización:
+${document.getElementById("optimization").textContent}
+
+`;
+
+    navigator.clipboard.writeText(text)
+        .then(()=>{
+
+            alert("✅ Configuración copiada.");
+
+        })
+        .catch(()=>{
+
+            alert("No se pudo copiar automáticamente.");
+
+        });
+
+}
+
 </script>
+
 </body>
 </html>
